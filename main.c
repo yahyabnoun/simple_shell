@@ -41,9 +41,9 @@ int main(int argc, char **argv)
 
 
 
-
-     HandleThePATH("PATH");
-
+/* HandleThePATH("PATH");
+*/
+     
 
 
 
