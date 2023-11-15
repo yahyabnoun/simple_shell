@@ -16,7 +16,7 @@ char *Read_lien(void)
         
         characters = getline(&buffer, &bufsize, stdin);
         
-        if (characters == -1)
+        if (characters == -1 || !buffer)
         {
             free(buffer);
             return (NULL);

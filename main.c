@@ -16,12 +16,15 @@ int main(int argc, char **argv)
         line = Read_lien();
         if (line == NULL)
         {
+            free(line);
             return (status);
         }
         /* end read line ------------------*/
         /* token*/
         arr = (char **)malloc(sizeof(char *) * 1024);
+
         token = strtok(line, " \n\t");
+        
         while (token)
         {
             arr[ind] = token;
@@ -32,7 +35,7 @@ int main(int argc, char **argv)
         arr[ind] = NULL;
         /* end token ------------------*/
         /* executing Command */
-        if (arr[0])
+        if (arr[0] && !token)
             executingCommand(arr, status);
         /* end executing Command ------------------*/
 
