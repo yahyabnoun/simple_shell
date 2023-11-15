@@ -5,16 +5,24 @@
 char *Read_lien(void)
 {
 
-        char *line = NULL ;
-        size_t len = 0;
-        size_t n;
+        char *buffer = NULL;
+        size_t bufsize = 0;
+        ssize_t characters;
 
-        write(1, "$ ", 2);
-        n = getline(&line, &len, stdin);
-        if (n==1)
+        if (isatty(1))
         {
-            free(line);
-            return NULL ;
+            write(1, "$ ", 2);
         }
-        return NULL;
+        
+        characters = getline(&buffer, &bufsize, stdin);
+        
+        if (characters == -1)
+        {
+            free(buffer);
+            return (NULL);
+        }
+    /*
+
+     */    
+        return (buffer);
 }
