@@ -66,7 +66,6 @@ int main(int argc, char **argv, char **env)
         if (isatty(0))
         {
             write(1, "$ ", 2);
-            // exit(0);
         }
         characters = getline(&buffer, &bufsize, stdin);
 

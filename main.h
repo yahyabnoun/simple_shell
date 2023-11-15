@@ -8,6 +8,6 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-// void execveCheck(char **arr);
+// int execveCheck(char **arr);
 
 #endif
