@@ -35,7 +35,7 @@ int main(int argc, char **argv)
         arr[ind] = NULL;
         /* end token ------------------*/
         /* executing Command */
-        if (arr[0] && !token)
+        if (arr[0])
             executingCommand(arr, status);
         /* end executing Command ------------------*/
 
