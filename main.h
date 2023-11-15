@@ -8,6 +8,12 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
-// int execveCheck(char **arr);
+
+
+
+void execveCheck(char **arr,int state);
+char *Read_lien(void);
+
+
 
 #endif

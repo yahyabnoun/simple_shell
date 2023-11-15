@@ -1,0 +1,73 @@
+// void free2dArray(char **x, int rows)
+// {
+//   for (int i = 0; i < rows; i++)
+//     free(x[i]);
+//     free(x);
+// }
+
+
+
+
+ // char *buffer;
+    // size_t bufsize = 32;
+    // size_t characters;
+    // char *token;
+    // int status;
+    // int ind = 0;
+    // char **arr;
+    // // extern char **environ ;
+    // (void)argc;
+    // (void)argv;
+
+    // buffer = (char *)malloc(bufsize * sizeof(char));
+    // if (buffer == NULL)
+    // {
+    //     free(buffer);
+    //     perror("Unable to allocate buffer\n");
+    //     exit(127);
+    // }
+
+    // while (1)
+    // {
+    //     if (isatty(0))
+    //     {
+    //         write(1, "$ ", 2);
+    //         // exit(0);
+    //     }
+    //     characters = getline(&buffer, &bufsize, stdin);
+
+
+    //     arr = (char **)malloc(sizeof(char *) * bufsize);
+    //     token = strtok(buffer, " \n\t");
+    //     if (!characters || !token)
+    //     {
+    //         free(buffer);
+    //         free(token);
+    //         buffer = NULL;
+    //         exit(0);
+    //     }
+
+
+    //     while (token)
+    //     {
+    //         arr[ind] = token;
+    //         token = strtok(NULL, " \t\n");
+    //         ind++;
+    //     }
+    //     free(token);
+    //     free(buffer);
+    //     buffer = NULL;
+
+
+
+
+    //     if (arr[0])
+    //     {
+    //         execveCheck(arr,status);
+    //     }
+        
+        
+
+
+    //     ind = 0;
+    // }
