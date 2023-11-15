@@ -13,50 +13,11 @@
  * Return: zero on succes.
  */
 
-int main(int argc, char **argv, char **env)
+
+
+void execveCheck(char **arr,int status)
 {
-    char *buffer;
-    size_t bufsize = 32;
-    size_t characters;
-    char *token;
-    pid_t p;
-    int status, ind = 0;
-    char **arr = NULL;
-    (void)argc;
-    (void)argv;
-
-    buffer = (char *)malloc(bufsize * sizeof(char));
-
-    if (buffer == NULL)
-    {
-        perror("Unable to allocate buffer\n");
-        exit(127);
-    }
-
-    while (1)
-    {
-
-        characters = getline(&buffer, &bufsize, stdin);
-        if (isatty(1))
-        {
-            write(1, "$ ", 2);
-            // exit(0);
-        }
-
-        arr = malloc(sizeof(characters) * sizeof(char) + 1);
-        token = strtok(buffer, " \n\t");
-        if (token == NULL)
-            exit(0);
-        // printf("You typed: '%ld' \n", sizeof(characters));
-
-        while (token)
-        {
-            arr[ind] = token;
-            token = strtok(NULL, " \t\n");
-            ind++;
-        }
-
-        arr[ind] = NULL;
+        pid_t p;
         p = fork();
 
         if (p == 0)
@@ -68,11 +29,82 @@ int main(int argc, char **argv, char **env)
         else
             wait(&status);
 
-            
-        ind = 0;
-        free(arr);
+}
+
+
+void free2dArray(char **x, int rows)
+{
+  for (int i = 0; i < rows; i++)
+    free(x[i]);
+    free(x);
+}
+
+
+int main(int argc, char **argv, char **env)
+{
+    char *buffer;
+    size_t bufsize = 32;
+    size_t characters;
+    char *token;
+    int status;
+    int ind = 0;
+    char **arr;
+    // extern char **environ ;
+    (void)argc;
+    (void)argv;
+
+    buffer = (char *)malloc(bufsize * sizeof(char));
+    if (buffer == NULL)
+    {
+        free(buffer);
+        perror("Unable to allocate buffer\n");
+        exit(127);
+    }
+
+    while (1)
+    {
+        if (isatty(0))
+        {
+            write(1, "$ ", 2);
+            // exit(0);
+        }
+        characters = getline(&buffer, &bufsize, stdin);
+
+
+        arr = (char **)malloc(sizeof(char *) * bufsize);
+        token = strtok(buffer, " \n\t");
+        if (!characters || !token)
+        {
+            free(buffer);
+            free(token);
+            buffer = NULL;
+            exit(0);
+        }
+
+
+        while (token)
+        {
+            arr[ind] = token;
+            token = strtok(NULL, " \t\n");
+            ind++;
+        }
         free(token);
+        free(buffer);
         buffer = NULL;
+
+
+
+
+        if (arr[0])
+        {
+            execveCheck(arr,status);
+        }
+        
+        
+
+        // free2dArray(arr,  2);
+
+        ind = 0;
         // printf("You typed: '%s' \n", execve(argv[0], argv, NULL));
     }
 
