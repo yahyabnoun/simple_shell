@@ -1,18 +1,14 @@
 #include "main.h"
 
-
 int main(int argc, char **argv)
 {
-
-
-    char *line = NULL ;
+    char *line = NULL;
     int status = 0;
     char *token = NULL;
     char **arr = NULL;
     int ind = 0;
-
-    (void) argc;
-    (void) argv;
+    (void)argc;
+    (void)argv;
 
     while (1)
     {
@@ -23,29 +19,35 @@ int main(int argc, char **argv)
             return (status);
         }
         /* end read line ------------------*/
-
-
         /* token*/
-
-        arr = (char **)malloc(sizeof(char *)*1024);
+        arr = (char **)malloc(sizeof(char *) * 1024);
         token = strtok(line, " \n\t");
-
         while (token)
         {
             arr[ind] = token;
             token = strtok(NULL, " \t\n");
             ind++;
         }
+
         arr[ind] = NULL;
         /* end token ------------------*/
-
-
         /* executing Command */
         if (arr[0])
-            executingCommand(arr,status);
-
-
+            executingCommand(arr, status);
         /* end executing Command ------------------*/
+
+
+
+
+
+
+
+     HandleThePATH("PATH");
+
+
+
+
+
 
 
 
@@ -53,12 +55,8 @@ int main(int argc, char **argv)
         free(token);
         token = NULL;
         free(line);
-        line = NULL ;
+        line = NULL;
         free(arr);
-
     }
-    
-
-   
     return (0);
 }
