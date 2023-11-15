@@ -9,7 +9,7 @@ char *Read_lien(void)
         size_t bufsize = 0;
         ssize_t characters;
 
-        if (isatty(1))
+        if (isatty(STDIN_FILENO))
         {
             write(1, "$ ", 2);
         }

@@ -27,6 +27,7 @@
     //     exit(127);
     // }
 
+
     // while (1)
     // {
     //     if (isatty(0))
@@ -35,6 +36,12 @@
     //         // exit(0);
     //     }
     //     characters = getline(&buffer, &bufsize, stdin);
+
+
+
+
+
+
 
 
     //     arr = (char **)malloc(sizeof(char *) * bufsize);

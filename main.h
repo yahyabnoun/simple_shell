@@ -13,7 +13,7 @@
 
 void execveCheck(char **arr,int state);
 char *Read_lien(void);
-
+void executingCommand(char **arr,int status);
 
 
 #endif

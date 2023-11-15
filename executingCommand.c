@@ -2,8 +2,9 @@
 
 
 
-void execveCheck(char **arr,int status)
+void executingCommand(char **arr,int status)
 {
+
         pid_t p;
         p = fork();
 
@@ -11,9 +12,8 @@ void execveCheck(char **arr,int status)
         {
             if (execve(arr[0], arr, NULL) == -1)
                 perror("execve");
-            exit(0);
+            
         }
         else
             wait(&status);
-
 }
